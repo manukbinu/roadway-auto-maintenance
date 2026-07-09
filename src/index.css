@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+    overflow-x: clip;
+    background: #050505;
+  }
+
+  body {
+    @apply bg-roadway-black text-white font-body antialiased;
+    overflow-x: clip;
+    background: #050505;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background: #e10600;
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #e10600;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .text-neon {
+    text-shadow: 0 0 6px rgba(255, 26, 26, 0.9), 0 0 24px rgba(225, 6, 0, 0.6);
+  }
+
+  .section-heading {
+    @apply font-display text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-widest text-white;
+  }
+
+  .section-kicker {
+    @apply inline-block font-body text-roadway-red tracking-[0.4em] uppercase text-xs sm:text-sm mb-4;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center px-8 py-4 font-display font-bold uppercase tracking-widest text-sm text-white bg-roadway-red overflow-hidden transition-all duration-300;
+    clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(225, 6, 0, 0.8), 0 0 60px rgba(225, 6, 0, 0.4);
+  }
+
+  .btn-outline {
+    @apply relative inline-flex items-center justify-center px-8 py-4 font-display font-bold uppercase tracking-widest text-sm text-white border border-roadway-red/60 bg-transparent transition-all duration-300 hover:bg-roadway-red/10 hover:border-roadway-red;
+    clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+  }
+
+  .glass-panel {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/10;
+  }
+
+  .card-red-border {
+    @apply border border-roadway-red/20 hover:border-roadway-red/70 transition-colors duration-500;
+  }
+}
+
+.noise-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 59;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.65) 100%);
+}
