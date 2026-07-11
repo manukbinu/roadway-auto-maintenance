@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Hero() {
   const sectionRef = useRef(null)
-  const introRef = useRef(null)
   const brandRef = useRef(null)
   const scrollHintRef = useRef(null)
 
@@ -24,13 +23,6 @@ export default function Hero() {
         },
       })
 
-      tl.to(introRef.current, { opacity: 0, y: -60, duration: 0.2, ease: 'none' }, 0)
-      tl.fromTo(
-        brandRef.current,
-        { opacity: 0, y: 40, scale: 0.92 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: 'none' },
-        0.32
-      )
       tl.to(scrollHintRef.current, { opacity: 0.6, duration: 0.06, ease: 'none' }, 0)
       tl.to(scrollHintRef.current, { opacity: 0, duration: 0.1, ease: 'none' }, 0.9)
     }, sectionRef)
@@ -47,14 +39,7 @@ export default function Hero() {
         <div data-camera="hero-end" className="absolute top-[92%] h-px w-px" />
 
         <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-6 text-center">
-          <div ref={introRef} className="absolute top-[18%] flex flex-col items-center">
-            <span className="section-kicker">Sharjah Industrial Area 4</span>
-            <p className="max-w-md text-white/50 font-body text-sm tracking-wide">
-              Watch the arrival — scroll to bring your service journey to life.
-            </p>
-          </div>
-
-          <div ref={brandRef} className="flex flex-col items-center opacity-0">
+          <div ref={brandRef} className="flex flex-col items-center">
             <span className="section-kicker">Premium Automotive Care</span>
             <h1 className="flex justify-center">
               <img
